@@ -2,6 +2,8 @@
 
 ## Initial setup with create-react-app
 
+[Alternative without create-react-app](https://dev.to/ivadyhabimana/how-to-create-a-react-app-without-using-create-react-app-a-step-by-step-guide-30nl)
+
 create-react-app already comes with a [template](https://create-react-app.dev/docs/adding-typescript/) to integrate TypeScript, so I used that
 
 ```bash
@@ -29,13 +31,13 @@ Create file `.prettierrc.json` add this content
 
 ```json
 {
-    "tabWidth": 2,
-    "useTabs": true,
-    "printWidth": 80,
-    "semi": true,
-    "trailingComma": "es5",
-    "singleQuote": true,
-    "endOfLine": "lf"
+  "tabWidth": 2,
+  "useTabs": true,
+  "printWidth": 80,
+  "semi": true,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "endOfLine": "lf"
 }
 ```
 
