@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "/Users/josue.fernandez/Labs/pizzeria"
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.options": {
+      "configFile": "/home/path/to/.eslintrc"
+    },
+    "javascript.validate.enable": true,
+    "prettier.eslintIntegration": true,
+    "prettier.printWidth": 100,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "typescript.format.enable": false,
+    "typescript.validate.enable": false,
+    "typescript.suggest.autoImports": false
+  }
+}
