@@ -13,6 +13,7 @@ npx create-react-app my-app --template typescript
 ## Add ESlint, Prettier and Husky
 
 [Installation Guide](https://dev.to/ivadyhabimana/setup-eslint-prettier-and-husky-in-a-node-project-a-step-by-step-guide-946)
+[Another Config](https://blog.devgenius.io/eslint-prettier-typescript-and-react-in-2022-e5021ebca2b1)
 
 ### ESlint
 

@@ -8,7 +8,7 @@
     "plugin:react/recommended",
     "standard-with-typescript",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -25,11 +25,16 @@
     "camelcase": "error",
     "spaced-comment": "error",
     "quotes": ["error", "single"],
-    "no-duplicate-imports": "error"
+    "no-duplicate-imports": "error",
+    "indent": "off",
+    "@typescript-eslint/indent": ["error", 2]
   },
   "settings": {
     "import/resolver": {
       "typescript": {}
+    },
+    "react": {
+      "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
     }
   }
 }
