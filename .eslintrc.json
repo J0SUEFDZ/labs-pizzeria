@@ -10,16 +10,24 @@
     "plugin:prettier/recommended",
     "prettier"
   ],
-  "overrides": [],
+  "overrides": [
+    {
+      "files": ["*.jsx", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": ["off"]
+      }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
   },
-  "plugins": ["react", "lint-staged", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "no-underscore-dangle": 0,
     "react/react-in-jsx-scope": "off",
@@ -33,14 +41,22 @@
       "error",
       "ignorePackages",
       {
-        "js": "always",
-        "jsx": "always"
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
       }
     ]
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      // "node": {
+      //   "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      // },
+      "typescript": {
+        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        "project": "*/tsconfig.json"
+      }
     },
     "react": {
       "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
