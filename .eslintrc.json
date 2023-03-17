@@ -1,14 +1,14 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
-    "jest": true
+    "es2021": true
   },
   "extends": [
     "plugin:react/recommended",
     "standard-with-typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -21,13 +21,22 @@
   },
   "plugins": ["react", "lint-staged", "@typescript-eslint", "prettier"],
   "rules": {
+    "no-underscore-dangle": 0,
     "react/react-in-jsx-scope": "off",
     "camelcase": "error",
     "spaced-comment": "error",
     "quotes": ["error", "single"],
     "no-duplicate-imports": "error",
     "indent": "off",
-    "@typescript-eslint/indent": ["error", 2]
+    "@typescript-eslint/indent": ["error", 2],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "always",
+        "jsx": "always"
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

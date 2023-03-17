@@ -1,5 +1,16 @@
 # Project Setup
 
+- [Project Setup](#project-setup)
+  - [Initial setup with create-react-app](#initial-setup-with-create-react-app)
+  - [Add ESlint, Prettier and Husky](#add-eslint-prettier-and-husky)
+    - [ESlint](#eslint)
+    - [Prettier](#prettier)
+    - [Integrating Prettier with ESLint](#integrating-prettier-with-eslint)
+    - [Configure Scripts](#configure-scripts)
+    - [Husky](#husky)
+  - [Setup Jest and React Testing Library](#setup-jest-and-react-testing-library)
+    - [Integrate Jest with ESLint](#integrate-jest-with-eslint)
+
 ## Initial setup with create-react-app
 
 [Alternative without create-react-app](https://dev.to/ivadyhabimana/how-to-create-a-react-app-without-using-create-react-app-a-step-by-step-guide-30nl)
@@ -72,3 +83,53 @@ Extend prettier on ESlint file
 ```bash
 npx mrm@2 lint-staged
 ```
+
+## Setup Jest and React Testing Library
+
+[Guide](https://dev.to/ivadyhabimana/setup-jest-and-react-testing-library-in-a-react-project-a-step-by-step-guide-1mf0)
+[Guide for ts-jest](https://swizec.com/blog/how-to-configure-jest-with-typescript/)
+
+```bash
+npm install --save-dev @testing-library/react @testing-library/jest-dom # Install React testing library dependencies
+npm install --save-dev jest jest-environment-jsdom # Install Jest dependencies
+```
+
+Make sure that `jest-environment-jsdom` version is the same as `jest` in `package.json`
+
+```json
+// package.json
+{
+  ...
+  "jest": "^29.5.0",
+  "jest-environment-jsdom": "^29.5.0",
+  ...
+}
+```
+
+Create file `jest.config.js` on root and add this:
+
+```js
+module.exports = {
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  coverageDirectory: 'coverage',
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+}
+```
+
+Create file `jest.setup.js` and add:
+
+```js
+import '@testing-library/jest-dom'
+```
+
+### Integrate Jest with ESLint
+
+```bash
+npm install --save-dev eslint-plugin-jest
+```
+
+- in the `eslintrc.json` add `"jest"` in the plugins array
+- in the `eslintrc.json` add `"plugin:jest/recommended"`, in the extends to use recommended jest syntax
+- in the `eslintrc.json` in the env entry add `"jest/globals"`: true to enable jest in our eslint environment
