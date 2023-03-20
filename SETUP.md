@@ -10,6 +10,7 @@
     - [Husky](#husky)
   - [Setup Jest and React Testing Library](#setup-jest-and-react-testing-library)
     - [Integrate Jest with ESLint](#integrate-jest-with-eslint)
+  - [Setup Tailwind](#setup-tailwind)
 
 ## Initial setup with create-react-app
 
@@ -133,3 +134,29 @@ npm install --save-dev eslint-plugin-jest
 - in the `eslintrc.json` add `"jest"` in the plugins array
 - in the `eslintrc.json` add `"plugin:jest/recommended"`, in the extends to use recommended jest syntax
 - in the `eslintrc.json` in the env entry add `"jest/globals"`: true to enable jest in our eslint environment
+
+## Setup Tailwind
+
+[Guide](https://dev.to/ethand91/creating-a-react-app-with-typescript-tailwind-support-18b8)
+[Another Guide](https://dev.to/ivadyhabimana/setup-tailwind-css-in-a-react-project-configured-from-scratch-a-step-by-step-guide-2jc8)
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+Next open up the created "tailwind.config.js" file and add the following to "content":
+
+```js
+content: [
+  './src/**/*.{js,jsx,ts,tsx}',
+],
+```
+
+Next we need to add the Tailwind directives to the "src/index.css" file, add the following to the top of the file:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
