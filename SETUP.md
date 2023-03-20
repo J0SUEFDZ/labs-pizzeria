@@ -11,6 +11,7 @@
   - [Setup Jest and React Testing Library](#setup-jest-and-react-testing-library)
     - [Integrate Jest with ESLint](#integrate-jest-with-eslint)
   - [Setup Tailwind](#setup-tailwind)
+  - [React Router v6 Configuration](#react-router-v6-configuration)
 
 ## Initial setup with create-react-app
 
@@ -159,4 +160,34 @@ Next we need to add the Tailwind directives to the "src/index.css" file, add the
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+```
+
+## React Router v6 Configuration
+
+[React Router](https://www.freecodecamp.org/news/how-to-use-react-router-version-6)
+
+```bash
+npm install react-router-dom@6
+```
+
+In `App.tsx`, replace `<React.StrictMode>` with `<BrowserRouter>`
+
+To create routes, use:
+
+```js
+<Routes>
+  <Route path="/" element={ <Home/> } />
+  <Route path="about" element={ <About/> } />
+  <Route path="contact" element={ <Contact/> } />
+</Routes>
+```
+
+Use those links with:
+
+```js
+<div>
+  <h1>This is the home page</h1>
+  <Link to="about">Click to view our about page</Link>
+  <Link to="contact">Click to view our contact page</Link>
+</div>
 ```
