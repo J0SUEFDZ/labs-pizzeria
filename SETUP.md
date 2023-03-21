@@ -12,6 +12,7 @@
     - [Integrate Jest with ESLint](#integrate-jest-with-eslint)
   - [Setup Tailwind](#setup-tailwind)
   - [React Router v6 Configuration](#react-router-v6-configuration)
+  - [Setup Firebase](#setup-firebase)
 
 ## Initial setup with create-react-app
 
@@ -190,4 +191,40 @@ Use those links with:
   <Link to="about">Click to view our about page</Link>
   <Link to="contact">Click to view our contact page</Link>
 </div>
+```
+
+## Setup Firebase
+
+[Guide](https://www.freecodecamp.org/news/how-to-use-the-firebase-database-in-react/)
+[Firestore](https://firebase.google.com/docs/firestore)
+
+```bash
+npm install firebase
+```
+
+Create `firebase.config.js` with these contents:
+
+```js
+// Import the functions you need from the SDKs you need
+import { getAnalytics } from 'firebase/analytics'
+import { initializeApp } from 'firebase/app'
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: 'XXXXXXXXXXXXXX',
+  authDomain: 'XXXXXXXXXXXXXX',
+  databaseURL: 'XXXXXXXXXXXXXX',
+  projectId: 'XXXXXXXXXXXXXX',
+  storageBucket: 'XXXXXXXXXXXXXX',
+  messagingSenderId: 'XXXXXXXXXXXXXX',
+  appId: 'XXXXXXXXXXXXXX',
+  measurementId: 'XXXXXXXXXXXXXX',
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+const analytics = getAnalytics(app)
 ```
