@@ -27,6 +27,7 @@
     ".git/objects",
     ".vscode",
     ".vscode-insiders",
-    "*.config.js"
+    "*.config.js",
+    "*.config.ts"
   ]
 }

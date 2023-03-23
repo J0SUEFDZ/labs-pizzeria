@@ -13,6 +13,8 @@
   - [Setup Tailwind](#setup-tailwind)
   - [React Router v6 Configuration](#react-router-v6-configuration)
   - [Setup Firebase](#setup-firebase)
+  - [Auth Settings](#auth-settings)
+    - [Keep User in Context](#keep-user-in-context)
 
 ## Initial setup with create-react-app
 
@@ -226,5 +228,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
+export const db = getFirestore(app)
+export const auth = getAuth(app)
 ```
+
+## Auth Settings
+
+### Keep User in Context
+
+[Guide](https://css-tricks.com/user-registration-authentication-firebase-react/)

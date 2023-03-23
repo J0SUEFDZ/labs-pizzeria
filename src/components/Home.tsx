@@ -1,16 +1,11 @@
-import { Link } from 'react-router-dom'
+import Navbar from './UI/Navbar'
 
-const Home = (): JSX.Element => {
+const Home = (): React.ReactElement => {
   return (
-    <div>
-      <h1>This is the home page</h1>
-      <p>
-        <Link to='about'>Click to view our about page</Link>
-      </p>
-      <p>
-        <Link to='contact'>Click to view our contact page</Link>
-      </p>
-    </div>
+    <>
+      <p> Home</p>
+      <Navbar current='/' />
+    </>
   )
 }
 

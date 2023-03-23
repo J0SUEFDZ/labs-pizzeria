@@ -13,9 +13,11 @@
   ],
   "overrides": [
     {
-      "files": ["*.jsx", "*.tsx"],
+      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
       "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": ["off"]
+        "@typescript-eslint/explicit-module-boundary-types": ["off"],
+        "no-debugger": 1, // show warning instead of error
+        "no-console": 1 // show warning instead of error
       }
     }
   ],
@@ -51,16 +53,13 @@
   },
   "settings": {
     "import/resolver": {
-      // "node": {
-      //   "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      // },
       "typescript": {
-        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        "alwaysTryTypes": true,
         "project": "*/tsconfig.json"
       }
     },
     "react": {
-      "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+      "version": "detect"
     }
   }
 }

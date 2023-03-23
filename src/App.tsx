@@ -1,17 +1,18 @@
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import About from './components/About'
-import Contact from './components/Contact'
+import AuthProvider from './components/Auth/AuthProvider'
 import Home from './components/Home'
+import Welcome from './components/Login/Welcome'
 
 const App = (): JSX.Element => {
   return (
     <div className='App'>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='about' element={<About />} />
-        <Route path='contact' element={<Contact />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='welcome' element={<Welcome />} />
+        </Routes>
+      </AuthProvider>
     </div>
   )
 }
