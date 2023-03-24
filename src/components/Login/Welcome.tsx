@@ -1,13 +1,14 @@
 import Navbar from '../UI/Navbar'
-import LoginForm from './LoginForm'
+import ErrorHandler from '../UI/SnackbarHandler'
+import UserAuthForm from './UserAuthForm'
 
 const Welcome = (): React.ReactElement => {
   return (
     <>
       <p>Welcome</p>
       <Navbar current='welcome' />
-
-      <LoginForm></LoginForm>
+      <ErrorHandler message='Success' severity='success' title='Success'></ErrorHandler>
+      <UserAuthForm signUp={true}></UserAuthForm>
     </>
   )
 }

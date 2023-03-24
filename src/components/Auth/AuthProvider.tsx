@@ -8,8 +8,8 @@ const AuthProvider = ({ children }: { children: React.ReactElement }): React.Rea
   const [user, setUser] = useState<FirebaseUser | null>(null)
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setUser(user)
+    onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser)
     })
   }, [])
 

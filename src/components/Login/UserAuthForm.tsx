@@ -8,22 +8,20 @@ interface IFormValues {
   phoneNumber: string
 }
 
+interface IFormProps {
+  signUp: boolean
+}
+
 const handleSubmit = async (values: IFormValues): Promise<void> => {
   const { email, password, name, phoneNumber } = values
-  const userInfo = signUp(email, password, name, phoneNumber)
-  if (userInfo.code === 200) {
-    console.log(userInfo.message)
-  } else {
-    console.log(userInfo.message)
-  }
+  signUp(email, password, name, phoneNumber)
 }
 
 const inputClass = 'border-2 bg-color-white'
 
-const LoginForm = (): React.ReactElement => {
+const UserAuthForm = (props: IFormProps): React.ReactElement => {
   return (
     <Formik
-      key='loginForm-1'
       initialValues={{ email: '', password: '', name: '', phoneNumber: '' }}
       onSubmit={handleSubmit}
     >
@@ -37,13 +35,17 @@ const LoginForm = (): React.ReactElement => {
               placeholder='josue.fernandez@gorilla.com'
             />
             <Field name='password' type='password' className={inputClass} placeholder='********' />
-            <Field name='name' className={inputClass} placeholder='Josue Fernandez' />
-            <Field name='phone_number' className={inputClass} placeholder='(+506) 11111111' />
+            {props.signUp && (
+              <Field name='name' className={inputClass} placeholder='Josue Fernandez' />
+            )}
+            {props.signUp && (
+              <Field name='phone_number' className={inputClass} placeholder='(+506) 11111111' />
+            )}
             <button
               type='submit'
               className='rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700'
             >
-              Submit
+              {props.signUp ? 'Sign Up' : 'Sign In'}
             </button>
           </Form>
         )
@@ -51,4 +53,4 @@ const LoginForm = (): React.ReactElement => {
     </Formik>
   )
 }
-export default LoginForm
+export default UserAuthForm
