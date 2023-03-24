@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
   type User as FirebaseUser,
 } from 'firebase/auth'
 import { addDoc, collection } from 'firebase/firestore'
@@ -25,19 +26,20 @@ export const signUp = (
   try {
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
-        debugger
+        await updateProfile(userCredential.user, {
+          displayName: name,
+        })
+
         await addDoc(collection(db, 'users'), {
           uid: userCredential.user.uid,
           email: userCredential.user.email,
           name,
           phoneNumber,
         }).then((res) => {
-          console.log(res)
+          return { user: userCredential.user, code: 200, message: 'User created successfully' }
         })
-        return { user: userCredential.user, code: 200, message: 'User created successfully' }
       })
       .catch((error) => {
-        debugger
         return defaultErrorValue(error.code, error.message)
       })
   } catch (error) {
